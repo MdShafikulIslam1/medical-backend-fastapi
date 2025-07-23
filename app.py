@@ -54,7 +54,7 @@ rag_chain = create_retrieval_chain(retriever, question_answer_chain)
 
 @app.get("/medi-conversation")
 async def medi_conversation():
-    return {"message": "CORS test successful"}
+    return {"message": "CORS test successful wow"}
 
 @app.post("/medi-conversation")
 async def medi_conversation(request: Request):
