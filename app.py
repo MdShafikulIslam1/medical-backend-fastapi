@@ -41,7 +41,7 @@ docsearch = PineconeVectorStore.from_existing_index(
     index_name=index_name,
     embedding=embeddings
 )
-retriever = docsearch.as_retriever(search_type="similarity", search_kwargs={"k":3})
+retriever = docsearch.as_retriever(search_type="similarity", search_kwargs={"k":4})
 chatModel = ChatTogether(model="mistralai/Mixtral-8x7B-Instruct-v0.1", temperature=0.3)
 prompt = ChatPromptTemplate.from_messages(
     [
