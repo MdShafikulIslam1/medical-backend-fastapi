@@ -28,7 +28,7 @@ if GROQ_API_KEY:
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000","https://medcareai.shofik.xyz"],  # বা ["*"] সব origin এর জন্য
+    allow_origins=["https://medcareai.shofik.xyz"],  # বা ["*"] সব origin এর জন্য
     allow_credentials=True,
     allow_methods=["*"],  # বা ["GET", "POST", "PUT", ...]
     allow_headers=["*"],
