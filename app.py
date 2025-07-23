@@ -28,7 +28,7 @@ if GROQ_API_KEY:
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://medcareai.shofik.xyz"],  # বা ["*"] সব origin এর জন্য
+    allow_origins=[*],  # বা ["*"] সব origin এর জন্য
     allow_credentials=True,
     allow_methods=["*"],  # বা ["GET", "POST", "PUT", ...]
     allow_headers=["*"],
@@ -51,6 +51,10 @@ prompt = ChatPromptTemplate.from_messages(
 )
 question_answer_chain = create_stuff_documents_chain(chatModel, prompt)
 rag_chain = create_retrieval_chain(retriever, question_answer_chain)
+
+@app.get("/medi-conversation")
+async def medi_conversation():
+    return {"message": "CORS test successful"}
 
 @app.post("/medi-conversation")
 async def medi_conversation(request: Request):
